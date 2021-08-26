@@ -6,6 +6,7 @@ import (
 	"Day15/midleware"
 	"os"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/subosito/gotenv"
 )
@@ -50,13 +51,11 @@ func main() {
 
 	auth := r.Group("/auth")
 	{
-		// auth.GET("/checkToken", midleware.CheckJWT(1))
-		auth.POST("/register", core.Register)
+		 	auth.POST("/register", core.Register)
 		auth.POST("/login", core.Login)
-		auth.POST("/logout", core.Logout)
-		// auth.GET("/", core.IndexHandler)
-		// auth.GET("/:provider", core.RedirectHandler)
-		// auth.GET("/:provider/callback", core.CallbackHandler)
+		auth.POST("/logout",midleware.IsUser(), core.Logout)
+		auth.POST("/logoutAdmin",midleware.IsAdmin(), core.Logout)
+		 
 	}
 
 	cart := r.Group("/cart")
