@@ -10,8 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	// "github.com/danilopolani/gocialite"
-	// gocialStruct "github.com/danilopolani/gocialite/structs"
+	 
 	"encoding/base64"
 	"os"
 	"strconv"
