@@ -198,7 +198,7 @@ func GetAllReport(c *gin.Context) {
 			c.JSON(http.StatusInternalServerError, gin.H{
 				"status":  "Internal Server Error",
 				"Message": "parameter day/month/year is required",
-				"data":    "filter is required",
+				"data":    "parameter is required",
 			})
 			return
 		}
