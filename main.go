@@ -40,15 +40,7 @@ func main() {
 		display.PUT("/update", midleware.IsAdmin(), core.UpdateDisplay)
 		display.DELETE("/delete/:sku", midleware.IsAdmin(), core.DeleteDisplay)
 	}
-	user := r.Group("/user")
-
-	{
-		user.GET("/", core.GetUser)
-		user.POST("/insert", core.InsertUser)
-		user.GET("/detail/:username", core.GetUserDetail)
-
-	}
-
+	 
 	auth := r.Group("/auth")
 	{
 		 	auth.POST("/register", core.Register)
